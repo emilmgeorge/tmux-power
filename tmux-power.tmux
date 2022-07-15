@@ -131,6 +131,7 @@ fi
 if [[ $prefix_highlight_pos == 'R' || $prefix_highlight_pos == 'LR' ]]; then
     RS="#{prefix_highlight}$RS"
 fi
+RS="#(timew | sed -n 's/Tracking \"\(.*\)\"/\1/p') #(timew | sed -n 's/[ ]\+Total[ ]\+\(.*\)/\1/p') $RS"
 tmux_set status-right "$RS"
 
 # Window status format
